@@ -1,3 +1,8 @@
+document.getElementById("player1_name").innerHTML=localStorage.getItem("P1");
+document.getElementById("player2_name").innerHTML=localStorage.getItem("P2");
+document.getElementById("player1_score").innerHTML=0;
+document.getElementById("player2_score").innerHTML=0;
+
 function send(){
 number1 = document.getElementById("number1").value;
 number2 = document.getElementById("number2").value;
@@ -14,19 +19,25 @@ document.getElementById("number2").value="";
 question_turn = "player1";
 answer_turn = "player2";
 
+player1_score=0;
+player2_score=0;
+
+player1_name = localStorage.getItem("P1");
+player1_name = localStorage.getItem("P2");
+
 function check(){
     get_answer = document.getElementById("input_check_box").value;
     if (get_answer == real_answer)
     {
         if (answer_turn == "player1")
         {
-            update_player1_score = player1_score + 1;
-            document.getElementById("player1_score").innerHTML = update_player1_score;
+            player1_score = player1_score + 1;
+            document.getElementById("player1_score").innerHTML = player1_score;
         }
         else
         {
-            update_player2_score = player2_score + 1;
-            document.getElementById("player2_score").innerHTML = update_player2_score;
+            player2_score = player2_score + 1;
+            document.getElementById("player2_score").innerHTML =player2_score;
         }
     }
     if (question_turn == "player1")
